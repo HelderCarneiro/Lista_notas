@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ListagemNotas.MainPage"
+             Title="Notas">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     x:Name="addnote"
+                     Clicked="OnNoteAddedClicked"/>
+        <ToolbarItem Text="Logout"
+                     Clicked="logoutclick"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <SearchBar Placeholder="Procurar"
+                   TextChanged="TextSearch"/>
+        <ListView x:Name="listview"           
+              ItemSelected="OnListViewItemSelected">
+        <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnMore"
+                                      CommandParameter="{Binding .}"
+                                      Text="Mais"/>
+                            <MenuItem Clicked="OnDelete"
+                                      CommandParameter="{Binding .}"
+                                      Text="Apagar" IsDestructive="True"/>
+                        </ViewCell.ContextActions>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding Title}" FontAttributes="Bold"/>
+                            <Label Text="{Binding text}" LineBreakMode="TailTruncation" WidthRequest="50" FontSize="10"/>
+                        </StackLayout>
+                        <Label Text="{Binding Date, StringFormat='Criado em {0:dd/MM/yyyy} ás {0:HH:MM}'}" FontSize="12" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </ViewCell>                          
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </StackLayout>
+</ContentPage>

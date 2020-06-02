@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ListagemNotas": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

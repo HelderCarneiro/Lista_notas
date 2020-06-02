@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"          
+             x:Class="ListagemNotas.NoteNewInsert"
+             Title="Nota">
+    <StackLayout>
+        <Label Text="Titulo"
+               CharacterSpacing="1"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+        <Entry Placeholder="Título"
+               HorizontalOptions="Center"
+               Text="{Binding Title}"/>
+        <Editor Placeholder="Escreva a sua Nota" PlaceholderColor="White"
+                HorizontalOptions="Center"
+                Text="{Binding Text}"
+                HeightRequest="70"
+                Margin="100"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Guardar"
+                    Clicked="OnSaveButtonClicked"
+                    VerticalOptions="End"
+                    Margin="0,200,0,0"/>
+            <Button Grid.Column="1"
+                    Text="Apagar"
+                    VerticalOptions="End"
+                    Clicked="OnDeleteButtonClicked"
+                    Margin="0,200,0,0"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>
